@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Ceremony Invitation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    :root {
+      --primary: #046A3A;
+      --secondary: #F8621C;
+      --accent: #FFD700;
+      --light: #f8f8f8;
+      --dark: #333;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f6fff8, #e6f7ed);
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .invitation-wrapper {
+      max-width: 800px;
+      width: 100%;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+      position: relative;
+      transition: all 0.5s ease;
+    }
+
+    .invitation-wrapper:hover {
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    }
+
+    .invitation-container {
+      position: relative;
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .floral-border {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: url('https://www.transparenttextures.com/patterns/floral.png');
+      opacity: 0.2;
+    }
+
+    .invitation-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: var(--primary);
+      margin: 20px 0 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .invitation-header:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--secondary);
+    }
+
+    .invitation-sub {
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .home-image {
+      width: 70%;
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transform: perspective(800px) rotateY(0deg);
+      transition: transform 0.8s ease;
+    }
+
+    .home-image:hover {
+      transform: perspective(800px) rotateY(10deg);
+    }
+
+    .event-details {
+      background: rgba(4, 106, 58, 0.05);
+      padding: 25px;
+      border-radius: 15px;
+      margin: 30px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-details:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--primary);
+    }
+
+    .event-details h3 {
+      color: var(--primary);
+      font-size: 26px;
+      margin-bottom: 15px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .event-details p {
+      margin: 10px 0;
+      font-size: 17px;
+    }
+
+    .event-details strong {
+      color: var(--primary);
+    }
+
+    .additional-content {
+      margin: 30px 0;
+      padding: 25px;
+      background: rgba(248, 98, 28, 0.05);
+      border-radius: 15px;
+      text-align: left;
+      position: relative;
+    }
+
+    .additional-content h4 {
+      color: var(--secondary);
+      margin-bottom: 15px;
+      font-size: 22px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .additional-content p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .map-button {
+      display: inline-flex;
+      align-items: center;
+      margin: 15px 0;
+      padding: 12px 25px;
+      background: linear-gradient(45deg, #3AA655, var(--primary));
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 15px rgba(4, 106, 58, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .map-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(4, 106, 58, 0.4);
+    }
+
+    .map-button:active {
+      transform: translateY(1px);
+    }
+
+    .map-button i {
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    .welcome-button {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 16px 45px;
+      background: linear-gradient(45deg, var(--primary), #3AA655);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 15px rgba(4, 106, 58, 0.3);
+      border: 2px solid white;
+    }
+
+    .welcome-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(4, 106, 58, 0.4);
+      background: linear-gradient(45deg, var(--secondary), #fa7d44);
+    }
+
+    .welcome-button:active {
+      transform: translateY(1px);
+    }
+
+    .welcome-button:after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(30deg);
+      transition: all 0.3s ease;
+    }
+
+    .welcome-button:hover:after {
+      left: 100%;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: var(--accent);
+      opacity: 0;
+    }
+
+    .footer-note {
+      margin-top: 40px;
+      font-style: italic;
+      color: #777;
+      font-size: 16px;
+    }
+
+    .animate-pop {
+      animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      80% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @media (max-width: 768px) {
+      .invitation-header {
+        font-size: 32px;
+      }
+      
+      .invitation-sub {
+        font-size: 18px;
+      }
+      
+      .home-image {
+        width: 85%;
+      }
+      
+      .event-details h3 {
+        font-size: 22px;
+      }
+      
+      .event-details p {
+        font-size: 16px;
+      }
+      
+      .welcome-button {
+        padding: 14px 35px;
+        font-size: 18px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  <div class="invitation-wrapper animate__animated animate__fadeIn">
+    <div class="invitation-container">
+      <div class="floral-border"></div>
+      
+      <h1 class="invitation-header animate__animated animate__fadeInDown">House Warming Ceremony</h1>
+      <p class="invitation-sub animate__animated animate__fadeIn animate__delay-1s">We cordially invite you to bless our new home</p>
+      
+      <img src="https://img.freepik.com/free-photo/cartoon-model-residential-home-property_23-2151024218.jpg"
+           alt="Home Celebration Illustration"
+           class="home-image floating"/>
+           <!-- https://img.freepik.com/free-photo/cartoon-house-building-architecture_23-2151024294.jpg -->
+           <!-- https://img.freepik.com/free-photo/cartoon-model-residential-home-property_23-2151024218.jpg -->
+      <div class="event-details animate__animated animate__fadeIn animate__delay-1s">
+        <h3>Event Details</h3>
+        <p><strong>Date:</strong> Wednesday, 30th April 2025</p>
+        <p><strong>Time:</strong> 6:00 PM onwards</p>
+        <p><strong>Location:</strong> Durga Nagar Colony, Somajiguda, Hyderabad, Telangana 500082</p>
+        
+        <button class="map-button pulse" onclick="window.open('https://maps.app.goo.gl/3tfxx7wGzmvjdS8S9', '_blank')">
+          <i class="fas fa-map-marker-alt"></i> View Location on Map
+        </button>
+      </div>
+      
+      <div class="additional-content animate__animated animate__fadeIn animate__delay-2s">
+        <h4>Celebrate With Us</h4>
+        <p>After years of dreaming and planning, we've finally found our perfect home. We would be honored to have you join us as we celebrate this milestone in our lives.</p>
+        <p>The ceremony will include traditional housewarming rituals followed by lunch. Your presence will add joy to our special day and help fill our new home with love and positive energy.</p>
+      </div>
+      
+      <button class="welcome-button animate__animated animate__pulse animate__infinite" id="welcomeBtn">
+        Click to Bless Our Us ❤️
+      </button>
+      
+      <p class="footer-note">*Kindly attendance our house warming ceremony  by 30th April 2025</p>
+    </div>
+  </div>
+
+  <script>
+    // Add confetti animation to welcome button
+    document.getElementById('welcomeBtn').addEventListener('click', function() {
+      createConfetti();
+      
+      // Show a temporary message
+      const originalText = this.textContent;
+      this.textContent = "Thank You for Your Blessings!";
+      this.style.background = "linear-gradient(45deg, var(--secondary), #fa7d44)";
+      
+      setTimeout(() => {
+        this.textContent = originalText;
+        this.style.background = "linear-gradient(45deg, var(--primary), #3AA655)";
+      }, 3000);
+    });
+    
+    function createConfetti() {
+      const colors = ['#046A3A', '#F8621C', '#FFD700', '#ffffff'];
+      const button = document.getElementById('welcomeBtn');
+      const buttonRect = button.getBoundingClientRect();
+      
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left = (buttonRect.left + buttonRect.width/2) + 'px';
+        confetti.style.top = (buttonRect.top) + 'px';
+        confetti.style.opacity = '1';
+        document.body.appendChild(confetti);
+        
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = 5 + Math.random() * 5;
+        const rotation = Math.random() * 360;
+        
+        let posX = buttonRect.left + buttonRect.width/2;
+        let posY = buttonRect.top;
+        let opacity = 1;
+        
+        const animateConfetti = () => {
+          posX += Math.cos(angle) * velocity;
+          posY += Math.sin(angle) * velocity + 1; // Add gravity
+          opacity -= 0.02;
+          
+          confetti.style.left = posX + 'px';
+          confetti.style.top = posY + 'px';
+          confetti.style.opacity = opacity;
+          confetti.style.transform = `rotate(${rotation}deg)`;
+          
+          if (opacity > 0) {
+            requestAnimationFrame(animateConfetti);
+          } else {
+            confetti.remove();
+          }
+        };
+        
+        requestAnimationFrame(animateConfetti);
+      }
+    }
+    
+    // Add scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-pop');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.event-details, .additional-content').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
